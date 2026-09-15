@@ -1,8 +1,10 @@
+import Jobcard from "./Jobcard";
 
 
 function App() {
   return (
     <>
+    <Jobcard/>
     </>
   )
 }
