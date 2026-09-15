@@ -2,8 +2,11 @@ body {
   background-color: #555;
 }
 .main-div {
-  height: 300px;
-  width: 280px;
+  height: auto;
+  min-width: 300px;
+  width: 100%;
+   max-width: 280px;     
+  box-sizing: border-box;
   background: #ffffff;
   border-radius: 20px;
   padding: 20px;
@@ -70,6 +73,7 @@ body {
 
 .job-type {
   display: flex;
+  flex-wrap: wrap; 
   gap: 8px;
   margin-bottom: 20px;
 }
@@ -90,6 +94,8 @@ body {
 
 .pay-div {
   display: flex;
+flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
