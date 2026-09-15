@@ -1,10 +1,10 @@
-import React from 'react'
+
 
 function App() {
   return (
     <>
       <div>
-        <h1 className=" text-2xl" >Misam Shaban</h1>
+        <h1 className="" >Misam Shaban</h1>
       </div>
     </>
   )
