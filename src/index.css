@@ -1,32 +1,130 @@
-/* @import "tailwindcss"; */
-
-
 body{
-    background-color: rgb(230, 227, 227)
+    background-color: #555;
 }
-.main-div{
-    background-color: white;
-    /* border: 2px solid black; */
-    border-radius: 25px;
-    height: 350px;
-    width: 300px;
-    margin: 30px;
+.main-div {
+   height: 350px;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
-.logo-div{
+
+
+.logo-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.save-btn {
+  background: #f2f2f2;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+
+.content-main-div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.company-name {
+  margin-top: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.company-name h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.job-day {
+  font-size: 12px;
+  color: #9a9a9a;
+}
+
+.job-title {
+  margin: 6px 0 12px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.job-type {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background: #f2f2f2;
+  color: #555;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 10px 0 16px 0;
+}
+
+.pay-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.location {
+  font-size: 13px;
+  color: #9a9a9a;
+  margin-top: 2px;
+}
+
+.apply-btn {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background: #333;
+}
+
+.showCard{
     display: flex;
-    justify-content: space-between;
-
+    gap: 10px;
+    flex-wrap: wrap;
 }
-
-.logo-div{
-    margin: 10px;
-}
-
-.logo-div img{
-    height: 50px;
-    width: 50px;
-    border: 1px solid goldenrod;
-    border-radius: 50%;
-    /* margin: 5px; */
-}
-
