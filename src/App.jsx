@@ -1,5 +1,5 @@
 import Jobcard from "./Jobcard";
-import JobCardData from "./Jobdata"
+import JobCardData from "./Jobdata.json"
 
 function App() {
 
