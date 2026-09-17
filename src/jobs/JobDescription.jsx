@@ -1,7 +1,25 @@
 import { useParams } from "react-router-dom";
+import {
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
+  AccordionItem,
+} from "reactstrap";
+
 import JobCardData from "../Jobdata.json";
+import { useState } from "react";
 
 function JobDescription() {
+  const [open, setOpen] = useState("1");
+
+  const toggle = (id) => {
+    if (open === id) {
+      setOpen(null);
+    } else {
+      setOpen(id);
+    }
+  };
+
   const { id } = useParams();
 
   const job = JobCardData.find((item) => item.id === Number(id));
@@ -22,50 +40,69 @@ function JobDescription() {
         <button className="description-apply-btn">Apply Now</button>
       </div>
 
-      <div className="job-description-content">
-        <section>
-          <h3>Job Description</h3>
-          <p>{job.jobDescription.description}</p>
-        </section>
+      <div>
+        <Accordion open={open} toggle={toggle}>
+          {/* Job Description */}
+          <AccordionItem className="border-0">
+            <AccordionHeader targetId="1">Job Description</AccordionHeader>
 
-        <section>
-          <h3>About the Job</h3>
-          <p>{job.jobDescription.aboutJob}</p>
-        </section>
+            <AccordionBody accordionId="1">
+              <p>{job.jobDescription.description}</p>
+            </AccordionBody>
+          </AccordionItem>
 
-        <section>
-          <h3>Requirements</h3>
+          {/* About the Job */}
+          <AccordionItem>
+            <AccordionHeader targetId="2">About the Job</AccordionHeader>
 
-          <ul>
-            {job.jobDescription.requirements.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </section>
+            <AccordionBody accordionId="2">
+              <p>{job.jobDescription.aboutJob}</p>
+            </AccordionBody>
+          </AccordionItem>
 
-        <section>
-          <h3>Preferred Skills</h3>
+          {/* Requirements */}
+          <AccordionItem>
+            <AccordionHeader targetId="3">Requirements</AccordionHeader>
 
-          <div className="skills-container">
-            {job.jobDescription.preferredSkills.map((item, index) => (
-              <span key={index} className="skill">
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
+            <AccordionBody accordionId="3">
+              <ul>
+                {job.jobDescription.requirements.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </AccordionBody>
+          </AccordionItem>
 
-        <section>
-          <h3>Additional Skills</h3>
+          {/* Preferred Skills */}
+          <AccordionItem>
+            <AccordionHeader targetId="4">Preferred Skills</AccordionHeader>
 
-          <div className="skills-container">
-            {job.jobDescription.additionalSkills.map((item, index) => (
-              <span key={index} className="skill">
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
+            <AccordionBody accordionId="4">
+              <div className="skills-container">
+                {job.jobDescription.preferredSkills.map((item, index) => (
+                  <span key={index} className="skill">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </AccordionBody>
+          </AccordionItem>
+
+          {/* Additional Skills */}
+          <AccordionItem>
+            <AccordionHeader targetId="5">Additional Skills</AccordionHeader>
+
+            <AccordionBody accordionId="5">
+              <div className="skills-container">
+                {job.jobDescription.additionalSkills.map((item, index) => (
+                  <span key={index} className="skill">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </AccordionBody>
+          </AccordionItem>
+        </Accordion>
       </div>
     </div>
   );

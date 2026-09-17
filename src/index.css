@@ -366,29 +366,27 @@ body{
 /* =========================
    Content
 ========================= */
-
-.job-description-content {
+/* 
+ .job-description-content {
   padding-top: 25px;
+
 }
 
-.job-description-content section {
+.job-description-content  {
   margin-bottom: 28px;
+} */
+
+.accordion-button{
+  font-weight: 500 !important;
+  margin: 0 0 10px !important;
+  font-size: 15px !important;
+  color: #1a1a1a !important;
 }
 
-.job-description-content h3 {
-  margin: 0 0 10px;
-
-  font-size: 19px;
-  color: #1a1a1a;
+.accordion-button::after{
+  display: none !important;
 }
 
-.job-description-content p {
-  margin: 0;
-
-  line-height: 1.7;
-  font-size: 15px;
-  color: #555;
-}
 
 
 /* =========================
@@ -517,3 +515,6 @@ body{
     font-size: 13px;
   }
 }
+
+
+
