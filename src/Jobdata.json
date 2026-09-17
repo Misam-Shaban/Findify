@@ -7,7 +7,25 @@
     "title": "Full Stack Developer",
     "tags": ["Part Time", "Senior Level"],
     "price": "$120/hr",
-    "location": "Punjab, Lahore"
+    "location": "Punjab, Lahore",
+    "jobDescription": {
+      "description": "Looking for an experienced Full Stack Developer skilled in React and Node.js to build and maintain scalable web applications, collaborate with cross-functional teams, and optimize application performance.",
+      "detailedLocation": "Gulberg, Lahore, Punjab, Pakistan",
+      "aboutJob": "The client is building an internal business management dashboard for a retail chain. The project involves creating both the customer-facing storefront and an admin panel to manage inventory, orders, and staff.",
+      "requirements": [
+        "3+ years of experience with React and Node.js",
+        "Strong understanding of REST APIs and databases",
+        "Experience with Git and version control workflows"
+      ],
+      "preferredSkills": [
+        "Experience with TypeScript",
+        "Familiarity with Docker and CI/CD pipelines"
+      ],
+      "additionalSkills": [
+        "Basic understanding of AWS or cloud hosting",
+        "Good communication skills for client meetings"
+      ]
+    }
   },
   {
     "id": 2,
@@ -17,7 +35,25 @@
     "title": "UI/UX Designer",
     "tags": ["Full Time", "Mid Level"],
     "price": "$80/hr",
-    "location": "Faisalabad, Punjab"
+    "location": "Faisalabad, Punjab",
+    "jobDescription": {
+      "description": "We need a creative UI/UX Designer to craft intuitive user interfaces, conduct user research, and design wireframes and prototypes for our software products.",
+      "detailedLocation": "Susan Road, Faisalabad, Punjab, Pakistan",
+      "aboutJob": "The client wants to redesign their existing mobile banking app to improve usability and modernize the visual design based on recent user feedback and research.",
+      "requirements": [
+        "2+ years of UI/UX design experience",
+        "Proficiency in Figma or Adobe XD",
+        "Portfolio showcasing mobile and web design work"
+      ],
+      "preferredSkills": [
+        "Experience conducting usability testing",
+        "Knowledge of design systems"
+      ],
+      "additionalSkills": [
+        "Basic front-end knowledge (HTML/CSS)",
+        "Understanding of accessibility standards"
+      ]
+    }
   },
   {
     "id": 3,
@@ -27,7 +63,25 @@
     "title": "Backend Engineer",
     "tags": ["Contract", "Senior Level"],
     "price": "$95/hr",
-    "location": "Islamabad"
+    "location": "Islamabad",
+    "jobDescription": {
+      "description": "Seeking a Backend Engineer with strong knowledge of Node.js, databases, and cloud infrastructure to design and maintain robust server-side systems and APIs.",
+      "detailedLocation": "Blue Area, Islamabad, Pakistan",
+      "aboutJob": "The client runs an e-commerce platform and needs backend infrastructure rebuilt to handle higher traffic loads, including order processing, payments, and inventory sync.",
+      "requirements": [
+        "4+ years of backend development experience",
+        "Strong knowledge of SQL and NoSQL databases",
+        "Experience designing scalable APIs"
+      ],
+      "preferredSkills": [
+        "Experience with microservices architecture",
+        "Knowledge of message queues (RabbitMQ, Kafka)"
+      ],
+      "additionalSkills": [
+        "Experience with payment gateway integrations",
+        "Familiarity with load testing tools"
+      ]
+    }
   },
   {
     "id": 4,
@@ -37,7 +91,25 @@
     "title": "Frontend Developer",
     "tags": ["Remote", "Mid Level"],
     "price": "$70/hr",
-    "location": "Karachi, Sindh"
+    "location": "Karachi, Sindh",
+    "jobDescription": {
+      "description": "Join our remote team as a Frontend Developer to build responsive, high-performance user interfaces using React and modern JavaScript frameworks.",
+      "detailedLocation": "Remote (Team based in Karachi, Sindh, Pakistan)",
+      "aboutJob": "The client is building a content streaming preview website where users can browse and preview shows before subscribing. Focus is heavily on frontend performance and animation.",
+      "requirements": [
+        "2+ years of React development experience",
+        "Strong CSS and responsive design skills",
+        "Experience working with REST or GraphQL APIs"
+      ],
+      "preferredSkills": [
+        "Experience with animation libraries (Framer Motion, GSAP)",
+        "Knowledge of performance optimization techniques"
+      ],
+      "additionalSkills": [
+        "Experience with testing libraries (Jest, React Testing Library)",
+        "Comfortable working async in a remote team"
+      ]
+    }
   },
   {
     "id": 5,
@@ -47,7 +119,25 @@
     "title": "Product Designer",
     "tags": ["Full Time", "Senior Level"],
     "price": "$150/hr",
-    "location": "Lahore, Punjab"
+    "location": "Lahore, Punjab",
+    "jobDescription": {
+      "description": "Meta is hiring a Product Designer to lead end-to-end design for new features, working closely with engineers and product managers to deliver seamless user experiences.",
+      "detailedLocation": "DHA Phase 5, Lahore, Punjab, Pakistan",
+      "aboutJob": "The client is launching a new social feature within an existing app and needs a designer to own the entire design process from concept to final handoff.",
+      "requirements": [
+        "5+ years of product design experience",
+        "Strong portfolio of shipped mobile/web products",
+        "Experience working in agile teams"
+      ],
+      "preferredSkills": [
+        "Experience with design systems at scale",
+        "Motion/interaction design skills"
+      ],
+      "additionalSkills": [
+        "Basic front-end prototyping (HTML/CSS)",
+        "Data-informed design decision making"
+      ]
+    }
   },
   {
     "id": 6,
@@ -57,7 +147,25 @@
     "title": "iOS Developer",
     "tags": ["Part Time", "Senior Level"],
     "price": "$130/hr",
-    "location": "Rawalpindi"
+    "location": "Rawalpindi",
+    "jobDescription": {
+      "description": "Apple is looking for an experienced iOS Developer proficient in Swift to build polished, high-quality mobile applications for millions of users worldwide.",
+      "detailedLocation": "Saddar, Rawalpindi, Punjab, Pakistan",
+      "aboutJob": "The client needs a native iOS app built for a fitness tracking startup, including workout logging, progress charts, and Apple Health integration.",
+      "requirements": [
+        "4+ years of Swift and iOS development experience",
+        "Experience publishing apps to the App Store",
+        "Strong understanding of iOS design guidelines"
+      ],
+      "preferredSkills": [
+        "Experience with SwiftUI",
+        "Familiarity with HealthKit"
+      ],
+      "additionalSkills": [
+        "Experience with push notifications",
+        "Basic backend/API integration knowledge"
+      ]
+    }
   },
   {
     "id": 7,
@@ -67,7 +175,25 @@
     "title": "Graphic Designer",
     "tags": ["Part-Time", "Flexible Schedule"],
     "price": "$150-220k",
-    "location": "Kochi, India"
+    "location": "Kochi, India",
+    "jobDescription": {
+      "description": "Adobe seeks a talented Graphic Designer to create visually compelling designs for digital and print media, with flexible working hours.",
+      "detailedLocation": "Infopark, Kochi, Kerala, India",
+      "aboutJob": "The client needs branding materials — logo variations, social media templates, and print brochures — for a growing lifestyle brand's marketing campaign.",
+      "requirements": [
+        "3+ years of graphic design experience",
+        "Proficiency in Adobe Photoshop and Illustrator",
+        "Strong portfolio of branding work"
+      ],
+      "preferredSkills": [
+        "Experience with print production and file prep",
+        "Basic motion graphics (After Effects)"
+      ],
+      "additionalSkills": [
+        "Photography editing skills",
+        "Familiarity with brand style guides"
+      ]
+    }
   },
   {
     "id": 8,
@@ -77,17 +203,53 @@
     "title": "Data Analyst",
     "tags": ["Full Time", "Entry Level"],
     "price": "$60/hr",
-    "location": "Multan, Punjab"
+    "location": "Multan, Punjab",
+    "jobDescription": {
+      "description": "Entry-level Data Analyst role at Spotify, analyzing user listening trends and generating insights to support data-driven decision making.",
+      "detailedLocation": "Cantt Area, Multan, Punjab, Pakistan",
+      "aboutJob": "The client wants a dashboard built to track user engagement metrics and generate weekly reports summarizing listening trends across regions.",
+      "requirements": [
+        "Basic knowledge of SQL and Excel",
+        "Understanding of data visualization concepts",
+        "Bachelor's degree in a related field"
+      ],
+      "preferredSkills": [
+        "Experience with Power BI or Tableau",
+        "Basic Python for data analysis"
+      ],
+      "additionalSkills": [
+        "Strong attention to detail",
+        "Good report-writing skills"
+      ]
+    }
   },
   {
     "id": 9,
-    "logo": "data:image/png;base64,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",
+    "logo": "data:image/png;base64,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",
     "company": "Tesla",
     "postedDays": "12 hours ago",
     "title": "Embedded Systems Engineer",
     "tags": ["On-site", "Senior Level"],
     "price": "$110/hr",
-    "location": "Sialkot, Punjab"
+    "location": "Sialkot, Punjab",
+    "jobDescription": {
+      "description": "Tesla requires an Embedded Systems Engineer to design and develop firmware for automotive hardware, ensuring reliability and performance in real-world conditions.",
+      "detailedLocation": "Industrial Estate, Sialkot, Punjab, Pakistan",
+      "aboutJob": "The client is developing a battery management system for electric vehicle prototypes and needs firmware written and tested on custom PCBs.",
+      "requirements": [
+        "3+ years of embedded C/C++ experience",
+        "Experience with microcontrollers (ARM, STM32)",
+        "Understanding of hardware-software interfacing"
+      ],
+      "preferredSkills": [
+        "Experience with RTOS",
+        "Knowledge of CAN bus protocols"
+      ],
+      "additionalSkills": [
+        "PCB debugging experience",
+        "Familiarity with automotive safety standards"
+      ]
+    }
   },
   {
     "id": 10,
@@ -97,6 +259,24 @@
     "title": "Marketing Manager",
     "tags": ["Full Time", "Mid Level"],
     "price": "$90/hr",
-    "location": "Peshawar"
+    "location": "Peshawar",
+    "jobDescription": {
+      "description": "Airbnb is hiring a Marketing Manager to develop and execute campaigns that grow brand awareness and drive user engagement across regional markets.",
+      "detailedLocation": "University Town, Peshawar, KPK, Pakistan",
+      "aboutJob": "The client is launching in a new regional market and needs a marketing lead to plan the launch campaign, manage social media, and coordinate with local influencers.",
+      "requirements": [
+        "3+ years of marketing experience",
+        "Experience running paid ad campaigns",
+        "Strong written and verbal communication skills"
+      ],
+      "preferredSkills": [
+        "Experience with influencer marketing",
+        "Knowledge of SEO basics"
+      ],
+      "additionalSkills": [
+        "Content creation skills (copywriting)",
+        "Experience with analytics tools (Google Analytics)"
+      ]
+    }
   }
 ]
