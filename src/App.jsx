@@ -1,36 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Jobcard from "./Jobcard";
-import JobCardData from "./Jobdata.json";
+import JobDescription from "./jobs/JobDescription";
+import Jobs from "./jobs";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        <Route
-          path="/"
-          element={
-            <div className="showCard">
-              {JobCardData.map(function (elem) {
-                return (
-                  <div key={elem.id}>
-                    <Jobcard
-                      id={elem.id}
-                      logo={elem.logo}
-                      company={elem.company}
-                      postedDays={elem.postedDays}
-                      title={elem.title}
-                      tags={elem.tags}
-                      price={elem.price}
-                      location={elem.location}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          }
-        />
-
+        <Route path="/" element={<Jobs />} />
+        <Route path="/job/:id" element={<JobDescription />} />
       </Routes>
     </BrowserRouter>
   );
