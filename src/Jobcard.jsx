@@ -1,9 +1,15 @@
 function Jobcard(props) {
+
+
+  function getJobDiscription(){
+    console.log("Data");
+    
+  }
   return (
     <div className="main-div">
       <div className="logo-div">
-        <img src={props.logo} alt="logo" className="logo-img" />
-        <button className="save-btn">Save </button>
+        <img src={props.logo} alt="logo" className="logo-img"/>
+        <button className="save-btn">Save</button>
       </div>
       <div className="content-main-div">
         <div className="company-name">
@@ -26,7 +32,7 @@ function Jobcard(props) {
           <div className="price">{props.price}</div>
           <div className="location">{props.location}</div>
         </div>
-        <button className="apply-btn">Apply now</button>
+        <button className="apply-btn" onClick={getJobDiscription} >Apply now</button>
       </div>
     </div>
   );
