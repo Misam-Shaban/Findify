@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "logo": "https://blog.logomyway.com/wp-content/uploads/2021/01/google-symbol.jpg",
+    "company": "Google",
+    "postedDays": "5 days ago",
+    "title": "Full Stack Developer",
+    "tags": ["Part Time", "Senior Level"],
+    "price": "$120/hr",
+    "location": "Punjab, Lahore",
+    "jobDescription": {
+      "description": "Looking for an experienced Full Stack Developer skilled in React and Node.js to build and maintain scalable web applications, collaborate with cross-functional teams, and optimize application performance.",
+      "detailedLocation": "Gulberg, Lahore, Punjab, Pakistan",
+      "aboutJob": "The client is building an internal business management dashboard for a retail chain. The project involves creating both the customer-facing storefront and an admin panel to manage inventory, orders, and staff.",
+      "requirements": [
+        "3+ years of experience with React and Node.js",
+        "Strong understanding of REST APIs and databases",
+        "Experience with Git and version control workflows"
+      ],
+      "preferredSkills": [
+        "Experience with TypeScript",
+        "Familiarity with Docker and CI/CD pipelines"
+      ],
+      "additionalSkills": [
+        "Basic understanding of AWS or cloud hosting",
+        "Good communication skills for client meetings"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "logo": "https://cdn.worldvectorlogo.com/logos/microsoft-5.svg",
+    "company": "Microsoft",
+    "postedDays": "1 day ago",
+    "title": "UI/UX Designer",
+    "tags": ["Full Time", "Mid Level"],
+    "price": "$80/hr",
+    "location": "Faisalabad, Punjab",
+    "jobDescription": {
+      "description": "We need a creative UI/UX Designer to craft intuitive user interfaces, conduct user research, and design wireframes and prototypes for our software products.",
+      "detailedLocation": "Susan Road, Faisalabad, Punjab, Pakistan",
+      "aboutJob": "The client wants to redesign their existing mobile banking app to improve usability and modernize the visual design based on recent user feedback and research.",
+      "requirements": [
+        "2+ years of UI/UX design experience",
+        "Proficiency in Figma or Adobe XD",
+        "Portfolio showcasing mobile and web design work"
+      ],
+      "preferredSkills": [
+        "Experience conducting usability testing",
+        "Knowledge of design systems"
+      ],
+      "additionalSkills": [
+        "Basic front-end knowledge (HTML/CSS)",
+        "Understanding of accessibility standards"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaL-7RRx5SW9qx4AJw4mjQHfar35O2ScabD2zkXUV8kg&s=10",
+    "company": "Amazon",
+    "postedDays": "3 days ago",
+    "title": "Backend Engineer",
+    "tags": ["Contract", "Senior Level"],
+    "price": "$95/hr",
+    "location": "Islamabad",
+    "jobDescription": {
+      "description": "Seeking a Backend Engineer with strong knowledge of Node.js, databases, and cloud infrastructure to design and maintain robust server-side systems and APIs.",
+      "detailedLocation": "Blue Area, Islamabad, Pakistan",
+      "aboutJob": "The client runs an e-commerce platform and needs backend infrastructure rebuilt to handle higher traffic loads, including order processing, payments, and inventory sync.",
+      "requirements": [
+        "4+ years of backend development experience",
+        "Strong knowledge of SQL and NoSQL databases",
+        "Experience designing scalable APIs"
+      ],
+      "preferredSkills": [
+        "Experience with microservices architecture",
+        "Knowledge of message queues (RabbitMQ, Kafka)"
+      ],
+      "additionalSkills": [
+        "Experience with payment gateway integrations",
+        "Familiarity with load testing tools"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "logo": "https://static.vecteezy.com/system/resources/previews/017/396/804/non_2x/netflix-mobile-application-logo-free-png.png",
+    "company": "Netflix",
+    "postedDays": "2 weeks ago",
+    "title": "Frontend Developer",
+    "tags": ["Remote", "Mid Level"],
+    "price": "$70/hr",
+    "location": "Karachi, Sindh",
+    "jobDescription": {
+      "description": "Join our remote team as a Frontend Developer to build responsive, high-performance user interfaces using React and modern JavaScript frameworks.",
+      "detailedLocation": "Remote (Team based in Karachi, Sindh, Pakistan)",
+      "aboutJob": "The client is building a content streaming preview website where users can browse and preview shows before subscribing. Focus is heavily on frontend performance and animation.",
+      "requirements": [
+        "2+ years of React development experience",
+        "Strong CSS and responsive design skills",
+        "Experience working with REST or GraphQL APIs"
+      ],
+      "preferredSkills": [
+        "Experience with animation libraries (Framer Motion, GSAP)",
+        "Knowledge of performance optimization techniques"
+      ],
+      "additionalSkills": [
+        "Experience with testing libraries (Jest, React Testing Library)",
+        "Comfortable working async in a remote team"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwNEwepjREEJ15RLBC_nI4ea3tHtftYloQYTjzJ4gozg&s",
+    "company": "Meta",
+    "postedDays": "6 hours ago",
+    "title": "Product Designer",
+    "tags": ["Full Time", "Senior Level"],
+    "price": "$150/hr",
+    "location": "Lahore, Punjab",
+    "jobDescription": {
+      "description": "Meta is hiring a Product Designer to lead end-to-end design for new features, working closely with engineers and product managers to deliver seamless user experiences.",
+      "detailedLocation": "DHA Phase 5, Lahore, Punjab, Pakistan",
+      "aboutJob": "The client is launching a new social feature within an existing app and needs a designer to own the entire design process from concept to final handoff.",
+      "requirements": [
+        "5+ years of product design experience",
+        "Strong portfolio of shipped mobile/web products",
+        "Experience working in agile teams"
+      ],
+      "preferredSkills": [
+        "Experience with design systems at scale",
+        "Motion/interaction design skills"
+      ],
+      "additionalSkills": [
+        "Basic front-end prototyping (HTML/CSS)",
+        "Data-informed design decision making"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrcm6kBTr77zswnurr7OiVSUi2khuwV0YZ05YcLww3OA&s=10",
+    "company": "Apple",
+    "postedDays": "4 days ago",
+    "title": "iOS Developer",
+    "tags": ["Part Time", "Senior Level"],
+    "price": "$130/hr",
+    "location": "Rawalpindi",
+    "jobDescription": {
+      "description": "Apple is looking for an experienced iOS Developer proficient in Swift to build polished, high-quality mobile applications for millions of users worldwide.",
+      "detailedLocation": "Saddar, Rawalpindi, Punjab, Pakistan",
+      "aboutJob": "The client needs a native iOS app built for a fitness tracking startup, including workout logging, progress charts, and Apple Health integration.",
+      "requirements": [
+        "4+ years of Swift and iOS development experience",
+        "Experience publishing apps to the App Store",
+        "Strong understanding of iOS design guidelines"
+      ],
+      "preferredSkills": [
+        "Experience with SwiftUI",
+        "Familiarity with HealthKit"
+      ],
+      "additionalSkills": [
+        "Experience with push notifications",
+        "Basic backend/API integration knowledge"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtniZHHBjfHBrIt9Soo5Hqb3JSRywWzH3wCWGXfKbPSQ&s=10",
+    "company": "Adobe",
+    "postedDays": "3 weeks ago",
+    "title": "Graphic Designer",
+    "tags": ["Part-Time", "Flexible Schedule"],
+    "price": "$150-220k",
+    "location": "Kochi, India",
+    "jobDescription": {
+      "description": "Adobe seeks a talented Graphic Designer to create visually compelling designs for digital and print media, with flexible working hours.",
+      "detailedLocation": "Infopark, Kochi, Kerala, India",
+      "aboutJob": "The client needs branding materials — logo variations, social media templates, and print brochures — for a growing lifestyle brand's marketing campaign.",
+      "requirements": [
+        "3+ years of graphic design experience",
+        "Proficiency in Adobe Photoshop and Illustrator",
+        "Strong portfolio of branding work"
+      ],
+      "preferredSkills": [
+        "Experience with print production and file prep",
+        "Basic motion graphics (After Effects)"
+      ],
+      "additionalSkills": [
+        "Photography editing skills",
+        "Familiarity with brand style guides"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "logo": "https://cdn.worldvectorlogo.com/logos/spotify-2.svg",
+    "company": "Spotify",
+    "postedDays": "1 week ago",
+    "title": "Data Analyst",
+    "tags": ["Full Time", "Entry Level"],
+    "price": "$60/hr",
+    "location": "Multan, Punjab",
+    "jobDescription": {
+      "description": "Entry-level Data Analyst role at Spotify, analyzing user listening trends and generating insights to support data-driven decision making.",
+      "detailedLocation": "Cantt Area, Multan, Punjab, Pakistan",
+      "aboutJob": "The client wants a dashboard built to track user engagement metrics and generate weekly reports summarizing listening trends across regions.",
+      "requirements": [
+        "Basic knowledge of SQL and Excel",
+        "Understanding of data visualization concepts",
+        "Bachelor's degree in a related field"
+      ],
+      "preferredSkills": [
+        "Experience with Power BI or Tableau",
+        "Basic Python for data analysis"
+      ],
+      "additionalSkills": [
+        "Strong attention to detail",
+        "Good report-writing skills"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmxJ0YMhxUCqeuurg6ge0SqDvO31HD48FcmbZGzUiNw&s=10",
+    "company": "Tesla",
+    "postedDays": "12 hours ago",
+    "title": "Embedded Systems Engineer",
+    "tags": ["On-site", "Senior Level"],
+    "price": "$110/hr",
+    "location": "Sialkot, Punjab",
+    "jobDescription": {
+      "description": "Tesla requires an Embedded Systems Engineer to design and develop firmware for automotive hardware, ensuring reliability and performance in real-world conditions.",
+      "detailedLocation": "Industrial Estate, Sialkot, Punjab, Pakistan",
+      "aboutJob": "The client is developing a battery management system for electric vehicle prototypes and needs firmware written and tested on custom PCBs.",
+      "requirements": [
+        "3+ years of embedded C/C++ experience",
+        "Experience with microcontrollers (ARM, STM32)",
+        "Understanding of hardware-software interfacing"
+      ],
+      "preferredSkills": [
+        "Experience with RTOS",
+        "Knowledge of CAN bus protocols"
+      ],
+      "additionalSkills": [
+        "PCB debugging experience",
+        "Familiarity with automotive safety standards"
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFTZFHp00dTOMWullEHT9QM8k7VziJRnwaYfvTvTrSWA&s=10",
+    "company": "Airbnb",
+    "postedDays": "2 days ago",
+    "title": "Marketing Manager",
+    "tags": ["Full Time", "Mid Level"],
+    "price": "$90/hr",
+    "location": "Peshawar",
+    "jobDescription": {
+      "description": "Airbnb is hiring a Marketing Manager to develop and execute campaigns that grow brand awareness and drive user engagement across regional markets.",
+      "detailedLocation": "University Town, Peshawar, KPK, Pakistan",
+      "aboutJob": "The client is launching in a new regional market and needs a marketing lead to plan the launch campaign, manage social media, and coordinate with local influencers.",
+      "requirements": [
+        "3+ years of marketing experience",
+        "Experience running paid ad campaigns",
+        "Strong written and verbal communication skills"
+      ],
+      "preferredSkills": [
+        "Experience with influencer marketing",
+        "Knowledge of SEO basics"
+      ],
+      "additionalSkills": [
+        "Content creation skills (copywriting)",
+        "Experience with analytics tools (Google Analytics)"
+      ]
+    }
+  }
+]
