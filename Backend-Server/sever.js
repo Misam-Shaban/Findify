@@ -27,10 +27,10 @@ app.get("/api/jobs", async (req, res) => {
   }
 });
 
-// Ek specific job lane wala route (id se)
+// Ek specific job lane wala route (custom id se)
 app.get("/api/jobs/:id", async (req, res) => {
   try {
-    const job = await Job.findById(req.params.id);
+    const job = await Job.findOne({ id: req.params.id });
     if (!job) {
       return res.status(404).json({ message: "Job not found" });
     }

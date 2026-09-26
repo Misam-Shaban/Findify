@@ -1,10 +1,19 @@
-import JobCardData from "../Jobdata.json";
+import { useState, useEffect } from "react";
 import Jobcard from "./Jobcard";
 
 const Jobs = () => {
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/jobs")
+      .then((res) => res.json())
+      .then((data) => setJobs(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="showCard">
-      {JobCardData.map(function ({
+      {jobs.map(function ({
         id,
         logo,
         company,
