@@ -5,7 +5,7 @@ const Jobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/jobs")
+    fetch("https://job-cards-with-react-production.up.railway.app/api/jobs")
       .then((res) => res.json())
       .then((data) => setJobs(data))
       .catch((err) => console.log(err));

@@ -22,7 +22,9 @@ function JobDescription() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/jobs/${id}`)
+    fetch(
+      `https://job-cards-with-react-production.up.railway.app/api/jobs/${id}`,
+    )
       .then((res) => res.json())
       .then((data) => setJob(data))
       .catch((err) => console.log(err));
