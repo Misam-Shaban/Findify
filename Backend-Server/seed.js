@@ -1,9 +1,11 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const Job = require("./models/Job");
 const jobData = require("./Jobdata.json");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/jobsDB")
+  .connect(process.env.MONGO_URI)
   .then(async () => {
     console.log("MongoDB connected for seeding");
 
