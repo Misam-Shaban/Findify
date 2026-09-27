@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -9,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/jobsDB")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
@@ -17,7 +19,6 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-// Sab jobs lane wala route
 app.get("/api/jobs", async (req, res) => {
   try {
     const jobs = await Job.find();
@@ -27,7 +28,6 @@ app.get("/api/jobs", async (req, res) => {
   }
 });
 
-// Ek specific job lane wala route (custom id se)
 app.get("/api/jobs/:id", async (req, res) => {
   try {
     const job = await Job.findOne({ id: req.params.id });
