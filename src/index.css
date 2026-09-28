@@ -517,4 +517,85 @@ body{
 }
 
 
+ /* style for add new job page  */
+.add-job-page {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
 
+.add-job-page h2 {
+  margin: 0 0 24px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.add-job-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.add-job-page input,
+.add-job-page select,
+.add-job-page textarea {
+  padding: 12px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
+}
+
+.add-job-page input:focus,
+.add-job-page select:focus,
+.add-job-page textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.add-job-page textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.add-job-page button {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.2s ease;
+}
+
+.add-job-page button:hover {
+  background: #333;
+}
+
+
+/* Style for delete button */
+
+.delete-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}

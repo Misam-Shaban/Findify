@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 function Jobcard({
   id,
+  mongoId,
   logo,
   company,
   title,
@@ -9,6 +10,7 @@ function Jobcard({
   price,
   location,
   postedDays,
+  onDelete,
 }) {
   return (
     <>
@@ -41,6 +43,10 @@ function Jobcard({
           Apply now
         </Link>
       </div>
+
+      <button className="delete-btn" onClick={() => onDelete(mongoId)}>
+        Delete
+      </button>
     </>
   );
 }
