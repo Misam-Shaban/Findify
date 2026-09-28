@@ -44,9 +44,18 @@ function Jobcard({
         </Link>
       </div>
 
-      <button className="delete-btn" onClick={() => onDelete(mongoId)}>
+      {/* <button className="delete-btn" onClick={() => onDelete(mongoId)}>
         Delete
-      </button>
+      </button> */}
+
+      <div className="card-actions">
+        <Link to={`/edit/${id}`} className="delete-btn">
+          Edit
+        </Link>
+        <button className="delete-btn" onClick={() => onDelete(mongoId)}>
+          Delete
+        </button>
+      </div>
     </>
   );
 }
