@@ -29,7 +29,7 @@ function Header() {
           <Link className="is-active" to="/">
             Home
           </Link>
-          <a href="/jobs">Find jobs</a>
+          <Link to="jobs">Find jobs</Link>
         </nav>
         <Link className="pill-button pill-button--outline" to="/add-job">
           Post a job
