@@ -1,24 +1,36 @@
-body{
-  background-color: #999;
+body {
+  background: linear-gradient(180deg,
+      #151515 0%,
+      #303030 22%,
+      #686868 45%,
+      #a6a6a6 68%,
+      #d0d0d0 84%,
+      #e4e4e4 100%);
+
+  font-family: "Manrope", Arial, sans-serif;
 }
+
+
+/* Main Card */
+
 .main-div {
   height: auto;
   width: 100%;
   max-width: 300px;
   box-sizing: border-box;
-
-  background: #ffffff;
+  background: #303030;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-  font-family: "Segoe UI", Arial, sans-serif;
-
+  border: 1px solid #666666;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+  font-family: "Manrope", Arial, sans-serif;
   display: flex;
   flex-direction: column;
 }
 
+
 /* Logo + Save Button */
+
 .logo-div {
   display: flex;
   justify-content: space-between;
@@ -30,23 +42,29 @@ body{
   width: 48px;
   height: 48px;
   flex-shrink: 0;
-  /* background-color: #db2626; */
   border-radius: 50%;
   object-fit: cover;
-  /* border: 1px solid #eee; */
+  border: 1px solid #777777;
 }
 
 .save-btn {
-  background: #f2f2f2;
-  border: none;
+  background: #4a4a4a;
+  color: #e8e8e8;
+  border: 1px solid #777777;
   border-radius: 20px;
   padding: 6px 14px;
-
   font-size: 13px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
+.save-btn:hover {
+  background: #5d5d5d;
+}
+
+
 /* Main Content */
+
 .content-main-div {
   flex: 1;
   display: flex;
@@ -56,11 +74,9 @@ body{
 
 .company-name {
   margin-top: 16px;
-
   display: flex;
   align-items: baseline;
   gap: 8px;
-
   flex-wrap: wrap;
 }
 
@@ -68,111 +84,106 @@ body{
   margin: 0;
   font-size: 16px;
   font-weight: 600;
+  color: #eeeeee;
 }
 
 .job-day {
   font-size: 12px;
-  color: #9a9a9a;
+  color: #b5b5b5;
 }
 
 .job-title {
   margin: 6px 0 12px;
-
   font-size: 20px;
   font-weight: 700;
-  color: #1a1a1a;
-
+  color: #f0f0f0;
   overflow-wrap: anywhere;
 }
 
+
 /* Job Tags */
+
 .job-type {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-
   margin-bottom: 20px;
 }
 
 .tag {
-  background: #f2f2f2;
-  color: #555;
-
+  background: #454545;
+  color: #e3e3e3;
+  border: 1px solid #707070;
   font-size: 13px;
   padding: 6px 12px;
   border-radius: 8px;
-
   max-width: 100%;
   overflow-wrap: anywhere;
 }
 
+
 /* Divider */
+
 .divider {
   border: none;
-  border-top: 1px solid #eee;
-
+  border-top: 1px solid #666666;
   margin: 10px 0 16px;
 }
 
+
 /* Price + Location */
+
 .pay-div {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-
   justify-content: space-between;
   align-items: center;
-
   margin-bottom: 10px;
 }
 
 .price {
   font-size: 18px;
   font-weight: 700;
-  color: #1a1a1a;
-
+  color: #eeeeee;
   overflow-wrap: anywhere;
 }
 
 .location {
   font-size: 13px;
-  color: #9a9a9a;
-
+  color: #b5b5b5;
   margin-top: 2px;
-
   overflow-wrap: anywhere;
 }
 
+
 /* Apply Button */
+
 .apply-btn {
   text-decoration: none;
-
-  background: #1a1a1a;
-  color: #fff;
-
+  background: #e0e0e0;
+  color: #222222;
+  font-weight: 600;
   border: none;
   border-radius: 20px;
-
   padding: 10px 18px;
-
   font-size: 14px;
   cursor: pointer;
-
   text-align: center;
 }
 
 .apply-btn:hover {
-  background: #333;
+  background: #c8c8c8;
 }
 
+
 /* Cards Container */
+
 .showCard {
   display: flex;
   gap: 20px;
-
   flex-wrap: wrap;
   justify-content: center;
-
   width: 100%;
   box-sizing: border-box;
 }
@@ -254,11 +265,6 @@ body{
 }
 
 
-
-
-
-
-
 /* =========================
    Job Description Page
 ========================= */
@@ -269,13 +275,11 @@ body{
   margin: 40px auto;
   padding: 30px;
   box-sizing: border-box;
-
-  background: #ffffff;
+  background: #303030;
   border-radius: 24px;
-
-  font-family: "Segoe UI", Arial, sans-serif;
-
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #666666;
+  font-family: "Manrope", Arial, sans-serif;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
 }
 
 
@@ -288,9 +292,8 @@ body{
   justify-content: space-between;
   align-items: flex-start;
   gap: 25px;
-
   padding-bottom: 25px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #666666;
 }
 
 .job-company-info {
@@ -303,35 +306,27 @@ body{
 .job-company-logo {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  padding-bottom: 17px;
   border-radius: 14px;
   object-fit: cover;
-
-  /* border: 1px solid #eee; */
-
-  /* flex-shrink: 0; */
+  border: 1px solid #777777;
 }
 
 .job-description-header h1 {
   margin: 0;
-
   font-size: 30px;
-  color: #1a1a1a;
+  color: #eeeeee;
 }
 
 .job-description-header h2 {
   margin: 8px 0;
-
   font-size: 18px;
   font-weight: 600;
-  color: #555;
+  color: #d2d2d2;
 }
 
 .job-description-header p {
   margin: 0;
-
-  color: #999;
+  color: #b5b5b5;
   font-size: 14px;
 }
 
@@ -341,24 +336,20 @@ body{
 ========================= */
 
 .description-apply-btn {
-  background: #1a1a1a;
-  color: white;
-
+  background: #e0e0e0;
+  color: #222222;
+  font-weight: 600;
   border: none;
   border-radius: 25px;
-
   padding: 12px 22px;
-
   font-size: 14px;
   cursor: pointer;
-
   transition: 0.2s;
-
   flex-shrink: 0;
 }
 
 .description-apply-btn:hover {
-  background: #333;
+  background: #c8c8c8;
   transform: translateY(-2px);
 }
 
@@ -366,27 +357,28 @@ body{
 /* =========================
    Content
 ========================= */
-/* 
- .job-description-content {
-  padding-top: 25px;
 
-}
-
-.job-description-content  {
-  margin-bottom: 28px;
-} */
-
-.accordion-button{
+.accordion-button {
   font-weight: 500 !important;
   margin: 0 0 10px !important;
   font-size: 15px !important;
-  color: #1a1a1a !important;
+  color: #eeeeee !important;
+  background: #303030 !important;
 }
 
-.accordion-button::after{
+.accordion-button::after {
   display: none !important;
 }
 
+.accordion-item {
+  background: #303030 !important;
+  border-color: #666666 !important;
+}
+
+.accordion-body {
+  background: #3d3d3d !important;
+  color: #dddddd !important;
+}
 
 
 /* =========================
@@ -400,8 +392,7 @@ body{
 
 .job-description-content li {
   margin-bottom: 8px;
-
-  color: #555;
+  color: #dddddd;
   line-height: 1.5;
 }
 
@@ -417,19 +408,17 @@ body{
 }
 
 .skill {
-  background: #f2f2f2;
-  color: #555;
-
+  background: #454545;
+  color: #dddddd;
+  border: 1px solid #707070;
   padding: 7px 13px;
-
   border-radius: 20px;
   font-size: 13px;
-
   transition: 0.2s;
 }
 
 .skill:hover {
-  background: #e5e5e5;
+  background: #5d5d5d;
   transform: translateY(-2px);
 }
 
@@ -453,7 +442,6 @@ body{
   .job-description-page {
     margin: 20px auto;
     padding: 20px;
-
     border-radius: 18px;
   }
 
@@ -517,22 +505,24 @@ body{
 }
 
 
- /* style for add new job page  */
+/* style for add new job page */
+
 .add-job-page {
   max-width: 600px;
   margin: 40px auto;
-  background: #ffffff;
+  background: #303030;
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-  font-family: 'Segoe UI', Arial, sans-serif;
+  border: 1px solid #666666;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+  font-family: "Manrope", Arial, sans-serif;
 }
 
 .add-job-page h2 {
   margin: 0 0 24px 0;
   font-size: 24px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #eeeeee;
 }
 
 .add-job-page form {
@@ -545,18 +535,24 @@ body{
 .add-job-page select,
 .add-job-page textarea {
   padding: 12px 14px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #707070;
   border-radius: 10px;
   font-size: 14px;
   font-family: inherit;
-  color: #333;
+  color: #eeeeee;
+  background: #454545;
+}
+
+.add-job-page input::placeholder,
+.add-job-page textarea::placeholder {
+  color: #b5b5b5;
 }
 
 .add-job-page input:focus,
 .add-job-page select:focus,
 .add-job-page textarea:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: #bdbdbd;
 }
 
 .add-job-page textarea {
@@ -565,8 +561,9 @@ body{
 }
 
 .add-job-page button {
-  background: #1a1a1a;
-  color: #fff;
+  background: #e0e0e0;
+  color: #222222;
+  font-weight: 600;
   border: none;
   border-radius: 20px;
   padding: 12px 20px;
@@ -577,11 +574,11 @@ body{
 }
 
 .add-job-page button:hover {
-  background: #333;
+  background: #c8c8c8;
 }
 
 
-/* Style for delete & Edit Button button */
+/* Style for delete & Edit button */
 
 .card-actions {
   display: flex;
@@ -593,7 +590,7 @@ body{
 .delete-btn {
   flex: 1;
   text-align: center;
-  border: none;
+  border: 1px solid #707070;
   border-radius: 10px;
   padding: 8px 0;
   font-size: 13px;
@@ -603,19 +600,21 @@ body{
 }
 
 .edit-btn {
-  background: #e0edff;
-  color: #1d4ed8;
+  background: #454545;
+  color: #e5e5e5;
 }
 
 .edit-btn:hover {
-  background: #c7ddff;
+  background: #5d5d5d;
 }
 
 .delete-btn {
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #454545;
+  color: #cfcfcf;
 }
 
 .delete-btn:hover {
-  background: #fecaca;
+  background: #5d5d5d;
+  color: #f0a0a0;
+  border-color: #888888;
 }
