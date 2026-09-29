@@ -90,7 +90,7 @@ function AddJob() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          background: "#151515" /* Aapka theme background */,
+          background: "#faf5f5" /* Aapka theme background */,
         }}
       >
         <p
