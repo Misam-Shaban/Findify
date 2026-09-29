@@ -1,13 +1,6 @@
 body {
-  background: linear-gradient(180deg,
-      #151515 0%,
-      #303030 22%,
-      #686868 45%,
-      #a6a6a6 68%,
-      #d0d0d0 84%,
-      #e4e4e4 100%);
-
-  font-family: "Manrope", Arial, sans-serif;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
 }
 
 
@@ -18,12 +11,12 @@ body {
   width: 100%;
   max-width: 300px;
   box-sizing: border-box;
-  background: #303030;
+  background: #18181b;
   border-radius: 20px;
   padding: 20px;
-  border: 1px solid #666666;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
-  font-family: "Manrope", Arial, sans-serif;
+  border: 1px solid #27272a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -44,13 +37,13 @@ body {
   flex-shrink: 0;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid #777777;
+  border: 1px solid #27272a;
 }
 
 .save-btn {
-  background: #4a4a4a;
-  color: #e8e8e8;
-  border: 1px solid #777777;
+  background: #27272a;
+  color: #e4e4e7;
+  border: 1px solid #3f3f46;
   border-radius: 20px;
   padding: 6px 14px;
   font-size: 13px;
@@ -59,7 +52,7 @@ body {
 }
 
 .save-btn:hover {
-  background: #5d5d5d;
+  background: #3f3f46;
 }
 
 
@@ -84,19 +77,19 @@ body {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #eeeeee;
+  color: #ffffff;
 }
 
 .job-day {
   font-size: 12px;
-  color: #b5b5b5;
+  color: #71717a;
 }
 
 .job-title {
   margin: 6px 0 12px;
   font-size: 20px;
   font-weight: 700;
-  color: #f0f0f0;
+  color: #ffffff;
   overflow-wrap: anywhere;
 }
 
@@ -111,9 +104,9 @@ body {
 }
 
 .tag {
-  background: #454545;
-  color: #e3e3e3;
-  border: 1px solid #707070;
+  background: #27272a;
+  color: #d4d4d8;
+  border: 1px solid #3f3f46;
   font-size: 13px;
   padding: 6px 12px;
   border-radius: 8px;
@@ -126,7 +119,7 @@ body {
 
 .divider {
   border: none;
-  border-top: 1px solid #666666;
+  border-top: 1px solid #27272a;
   margin: 10px 0 16px;
 }
 
@@ -145,13 +138,13 @@ body {
 .price {
   font-size: 18px;
   font-weight: 700;
-  color: #eeeeee;
+  color: #ffffff;
   overflow-wrap: anywhere;
 }
 
 .location {
   font-size: 13px;
-  color: #b5b5b5;
+  color: #71717a;
   margin-top: 2px;
   overflow-wrap: anywhere;
 }
@@ -161,8 +154,8 @@ body {
 
 .apply-btn {
   text-decoration: none;
-  background: #e0e0e0;
-  color: #222222;
+  background: #e3ff56;
+  color: #0a0a0a;
   font-weight: 600;
   border: none;
   border-radius: 20px;
@@ -173,7 +166,7 @@ body {
 }
 
 .apply-btn:hover {
-  background: #c8c8c8;
+  background: #d4f03e;
 }
 
 
@@ -275,11 +268,11 @@ body {
   margin: 40px auto;
   padding: 30px;
   box-sizing: border-box;
-  background: #303030;
+  background: #18181b;
   border-radius: 24px;
-  border: 1px solid #666666;
-  font-family: "Manrope", Arial, sans-serif;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+  border: 1px solid #27272a;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -293,7 +286,7 @@ body {
   align-items: flex-start;
   gap: 25px;
   padding-bottom: 25px;
-  border-bottom: 1px solid #666666;
+  border-bottom: 1px solid #27272a;
 }
 
 .job-company-info {
@@ -308,25 +301,25 @@ body {
   height: 50px;
   border-radius: 14px;
   object-fit: cover;
-  border: 1px solid #777777;
+  border: 1px solid #27272a;
 }
 
 .job-description-header h1 {
   margin: 0;
   font-size: 30px;
-  color: #eeeeee;
+  color: #ffffff;
 }
 
 .job-description-header h2 {
   margin: 8px 0;
   font-size: 18px;
   font-weight: 600;
-  color: #d2d2d2;
+  color: #d4d4d8;
 }
 
 .job-description-header p {
   margin: 0;
-  color: #b5b5b5;
+  color: #71717a;
   font-size: 14px;
 }
 
@@ -336,8 +329,8 @@ body {
 ========================= */
 
 .description-apply-btn {
-  background: #e0e0e0;
-  color: #222222;
+  background: #e3ff56;
+  color: #0a0a0a;
   font-weight: 600;
   border: none;
   border-radius: 25px;
@@ -349,7 +342,7 @@ body {
 }
 
 .description-apply-btn:hover {
-  background: #c8c8c8;
+  background: #d4f03e;
   transform: translateY(-2px);
 }
 
@@ -362,8 +355,8 @@ body {
   font-weight: 500 !important;
   margin: 0 0 10px !important;
   font-size: 15px !important;
-  color: #eeeeee !important;
-  background: #303030 !important;
+  color: #ffffff !important;
+  background: #18181b !important;
 }
 
 .accordion-button::after {
@@ -371,13 +364,13 @@ body {
 }
 
 .accordion-item {
-  background: #303030 !important;
-  border-color: #666666 !important;
+  background: #18181b !important;
+  border-color: #27272a !important;
 }
 
 .accordion-body {
-  background: #3d3d3d !important;
-  color: #dddddd !important;
+  background: #18181b !important;
+  color: #d4d4d8 !important;
 }
 
 
@@ -392,7 +385,7 @@ body {
 
 .job-description-content li {
   margin-bottom: 8px;
-  color: #dddddd;
+  color: #d4d4d8;
   line-height: 1.5;
 }
 
@@ -408,9 +401,9 @@ body {
 }
 
 .skill {
-  background: #454545;
-  color: #dddddd;
-  border: 1px solid #707070;
+  background: #27272a;
+  color: #d4d4d8;
+  border: 1px solid #3f3f46;
   padding: 7px 13px;
   border-radius: 20px;
   font-size: 13px;
@@ -418,7 +411,7 @@ body {
 }
 
 .skill:hover {
-  background: #5d5d5d;
+  background: #3f3f46;
   transform: translateY(-2px);
 }
 
@@ -510,19 +503,19 @@ body {
 .add-job-page {
   max-width: 600px;
   margin: 40px auto;
-  background: #303030;
+  background: #18181b;
   border-radius: 20px;
   padding: 30px;
-  border: 1px solid #666666;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
-  font-family: "Manrope", Arial, sans-serif;
+  border: 1px solid #27272a;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
 }
 
 .add-job-page h2 {
   margin: 0 0 24px 0;
   font-size: 24px;
   font-weight: 700;
-  color: #eeeeee;
+  color: #ffffff;
 }
 
 .add-job-page form {
@@ -535,24 +528,24 @@ body {
 .add-job-page select,
 .add-job-page textarea {
   padding: 12px 14px;
-  border: 1px solid #707070;
+  border: 1px solid #3f3f46;
   border-radius: 10px;
   font-size: 14px;
   font-family: inherit;
-  color: #eeeeee;
-  background: #454545;
+  color: #ffffff;
+  background: #27272a;
 }
 
 .add-job-page input::placeholder,
 .add-job-page textarea::placeholder {
-  color: #b5b5b5;
+  color: #71717a;
 }
 
 .add-job-page input:focus,
 .add-job-page select:focus,
 .add-job-page textarea:focus {
   outline: none;
-  border-color: #bdbdbd;
+  border-color: #e3ff56;
 }
 
 .add-job-page textarea {
@@ -561,8 +554,8 @@ body {
 }
 
 .add-job-page button {
-  background: #e0e0e0;
-  color: #222222;
+  background: #e3ff56;
+  color: #0a0a0a;
   font-weight: 600;
   border: none;
   border-radius: 20px;
@@ -574,7 +567,7 @@ body {
 }
 
 .add-job-page button:hover {
-  background: #c8c8c8;
+  background: #d4f03e;
 }
 
 
@@ -590,7 +583,7 @@ body {
 .delete-btn {
   flex: 1;
   text-align: center;
-  border: 1px solid #707070;
+  border: 1px solid #3f3f46;
   border-radius: 10px;
   padding: 8px 0;
   font-size: 13px;
@@ -600,27 +593,28 @@ body {
 }
 
 .edit-btn {
-  background: #454545;
-  color: #e5e5e5;
+  background: #27272a;
+  color: #e3ff56;
 }
 
 .edit-btn:hover {
-  background: #5d5d5d;
+  background: #3f3f46;
 }
 
 .delete-btn {
-  background: #454545;
-  color: #cfcfcf;
+  background: #27272a;
+  color: #a1a1aa;
 }
 
 .delete-btn:hover {
-  background: #5d5d5d;
-  color: #f0a0a0;
-  border-color: #888888;
+  background: #3f3f46;
+  color: #f87171;
+  border-color: #f87171;
 }
 
 
 /* Loading State */
+
 .loading-container {
   display: flex;
   justify-content: center;
