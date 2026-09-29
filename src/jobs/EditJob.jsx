@@ -86,10 +86,33 @@ function EditJob() {
     }
   };
 
+  // FIX: Loading ke liye alag isolated class di hai taake main page ki CSS pehle load na ho
   if (!formData) {
-    return <p>Loading...</p>;
+    return (
+      <div
+        className="loading-container"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          background: "#fdf9f9" /* Aapka theme background */,
+        }}
+      >
+        <p
+          style={{
+            color: "#a1a1aa",
+            fontSize: "1.2rem",
+            fontFamily: "sans-serif",
+          }}
+        >
+          Loading job details...
+        </p>
+      </div>
+    );
   }
 
+  // Real layout aur iski CSS (add-job-page) tabhi aayegi jab formData ka data aa chuka hoga
   return (
     <div className="add-job-page">
       <h2>Edit Job</h2>
@@ -113,7 +136,7 @@ function EditJob() {
         <input
           type="text"
           name="price"
-          placeholder="Price (e.g. $100/hr)"
+          placeholder="Price (e.g. \$100/hr)"
           value={formData.price}
           onChange={handleChange}
           required
