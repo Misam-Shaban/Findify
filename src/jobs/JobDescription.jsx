@@ -30,33 +30,14 @@ function JobDescription() {
       .catch((err) => console.log(err));
   }, [id]);
 
-  // FIX: Loading ke waqt page ki baki CSS ko load hone se rokne ke liye independent container lagaya hai
   if (!job) {
     return (
-      <div
-        className="loading-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          background: "#fdf8f8" /* Aapka theme background color */,
-        }}
-      >
-        <p
-          style={{
-            color: "#a1a1aa",
-            fontSize: "1.2rem",
-            fontFamily: "sans-serif",
-          }}
-        >
-          Loading job details...
-        </p>
+      <div className="loading-container">
+        <p className="loading-text">Loading job details...</p>
       </div>
     );
   }
 
-  // Asli HTML aur CSS tabhi load hogi jab API ka data complete aa chuka hoga
   return (
     <div className="job-description-page">
       <div className="job-description-header">

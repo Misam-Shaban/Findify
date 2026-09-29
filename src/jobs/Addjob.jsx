@@ -10,7 +10,6 @@ const toArray = (text, separator) =>
 function AddJob() {
   const navigate = useNavigate();
 
-  // 1. Loading State jab data save ho raha ho
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -38,7 +37,7 @@ function AddJob() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // 2. Submitting start ho gayi
+    setIsSubmitting(true);
 
     const newJob = {
       logo: formData.logo,
@@ -72,36 +71,18 @@ function AddJob() {
         navigate("/");
       } else {
         console.log("Something went wrong");
-        setIsSubmitting(false); // Error aaye to loading khatam karein
+        setIsSubmitting(false);
       }
     } catch (err) {
       console.log(err);
-      setIsSubmitting(false); // Exception aaye to loading khatam karein
+      setIsSubmitting(false);
     }
   };
 
-  // 3. FIX: Submit hote waqt isolated loading screen dikhayen
   if (isSubmitting) {
     return (
-      <div
-        className="loading-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          background: "#faf5f5" /* Aapka theme background */,
-        }}
-      >
-        <p
-          style={{
-            color: "#a1a1aa",
-            fontSize: "1.2rem",
-            fontFamily: "sans-serif",
-          }}
-        >
-          Saving new job, please wait...
-        </p>
+      <div className="loading-container">
+        <p className="loading-text">Saving new job, please wait...</p>
       </div>
     );
   }
@@ -129,7 +110,7 @@ function AddJob() {
         <input
           type="text"
           name="price"
-          placeholder="Price (e.g. \$100/hr)"
+          placeholder="Price (e.g. $100/hr)"
           value={formData.price}
           onChange={handleChange}
           required

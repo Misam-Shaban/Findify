@@ -618,3 +618,19 @@ body {
   color: #f0a0a0;
   border-color: #888888;
 }
+
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  width: 100%;
+}
+
+.loading-text {
+  color: #a1a1aa;
+  font-size: 1.1rem;
+  font-family: inherit;
+}
