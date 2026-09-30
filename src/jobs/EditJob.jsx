@@ -1,55 +1,41 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 
-const toArray = (text, separator) =>
+const API = "https://job-cards-with-react-production.up.railway.app/api/jobs";
+const toArray = (text, sep) =>
   text
-    .split(separator)
-    .map((item) => item.trim())
+    .split(sep)
+    .map((t) => t.trim())
     .filter(Boolean);
 
-function EditJob() {
-  const { id } = useParams();
-  const navigate = useNavigate();
+function EditJob({ job, onCancel, onUpdate }) {
+  const [formData, setFormData] = useState({
+    mongoId: job._id,
+    company: job.company || "",
+    title: job.title || "",
+    price: job.price || "",
+    location: job.location || "",
+    logo: job.logo || "",
+    jobType: job.tags?.[0] || "Full Time",
+    level: job.tags?.[1] || "Mid Level",
+    description: job.jobDescription?.description || "",
+    detailedLocation: job.jobDescription?.detailedLocation || "",
+    aboutJob: job.jobDescription?.aboutJob || "",
+    requirements: (job.jobDescription?.requirements || []).join("\n"),
+    preferredSkills: (job.jobDescription?.preferredSkills || []).join(", "),
+    additionalSkills: (job.jobDescription?.additionalSkills || []).join(", "),
+  });
 
-  const [formData, setFormData] = useState(null);
+  const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    fetch(
-      `https://job-cards-with-react-production.up.railway.app/api/jobs/${id}`,
-    )
-      .then((res) => res.json())
-      .then((job) => {
-        setFormData({
-          mongoId: job._id,
-          company: job.company,
-          title: job.title,
-          price: job.price,
-          location: job.location,
-          logo: job.logo,
-          jobType: job.tags[0] || "Full Time",
-          level: job.tags[1] || "Mid Level",
-          description: job.jobDescription.description,
-          detailedLocation: job.jobDescription.detailedLocation,
-          aboutJob: job.jobDescription.aboutJob,
-          requirements: job.jobDescription.requirements.join("\n"),
-          preferredSkills: job.jobDescription.preferredSkills.join(", "),
-          additionalSkills: job.jobDescription.additionalSkills.join(", "),
-        });
-      })
-      .catch((err) => console.log(err));
-  }, [id]);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSaving(true);
 
-    const updatedJob = {
+    const updated = {
       logo: formData.logo,
       company: formData.company,
       title: formData.title,
@@ -67,37 +53,29 @@ function EditJob() {
     };
 
     try {
-      const response = await fetch(
-        `https://job-cards-with-react-production.up.railway.app/api/jobs/${formData.mongoId}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updatedJob),
-        },
-      );
-
-      if (response.ok) {
-        navigate("/");
-      } else {
-        console.log("Something went wrong");
-      }
+      const res = await fetch(`${API}/${formData.mongoId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updated),
+      });
+      if (res.ok) onUpdate(updated);
     } catch (err) {
       console.log(err);
+    } finally {
+      setSaving(false);
     }
   };
 
-  if (!formData) {
-    return (
-      <div className="loading-container">
-        <p className="loading-text">Loading job details...</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="add-job-page">
-      <h2>Edit Job</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="job-detail edit-panel">
+      <div className="edit-header">
+        <h2>Edit Job</h2>
+        <button className="close-btn" onClick={onCancel} aria-label="Cancel">
+          <FaTimes />
+        </button>
+      </div>
+
+      <form onSubmit={handleSubmit} className="job-form">
         <input
           type="text"
           name="company"
@@ -125,7 +103,7 @@ function EditJob() {
         <input
           type="text"
           name="location"
-          placeholder="Location (e.g. Lahore, Punjab)"
+          placeholder="Location"
           value={formData.location}
           onChange={handleChange}
           required
@@ -196,7 +174,14 @@ function EditJob() {
           onChange={handleChange}
         />
 
-        <button type="submit">Update Job</button>
+        <div className="form-actions">
+          <button type="button" className="btn-ghost" onClick={onCancel}>
+            Cancel
+          </button>
+          <button type="submit" className="btn-primary" disabled={saving}>
+            {saving ? "Saving..." : "Update Job"}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -1,62 +1,54 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaTrashAlt } from "react-icons/fa";
 
 function Jobcard({
   id,
-  mongoId,
-  logo,
   company,
   title,
-  tags,
+  tags = [],
   price,
   location,
-  postedDays,
+  isActive,
   onDelete,
 }) {
+  const navigate = useNavigate();
+
+  const handleSelect = () => navigate(`/jobs/${id}`);
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    onDelete?.();
+  };
+
   return (
-    <>
-      <div className="logo-div">
-        <img src={logo} alt="logo" className="logo-img" />
-        <button className="save-btn">Save</button>
-      </div>
-      <div className="content-main-div">
-        <div className="company-name">
-          <h3>{company}</h3>
-          <span className="job-day">{postedDays}</span>
-        </div>
+    <article
+      className={`job-card${isActive ? " job-card--active" : ""}`}
+      onClick={handleSelect}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === "Enter" && handleSelect()}
+    >
+      <h3 className="job-card-title">{title}</h3>
+      <p className="job-card-company">{company}</p>
+      <p className="job-card-location">{location}</p>
 
-        <h4 className="job-title">{title}</h4>
-
-        <div className="job-type">
-          <div className="tag">{tags[0]}</div>
-          <div className="tag">{tags[1]}</div>
-        </div>
-      </div>
-
-      <hr className="divider" />
-
-      <div className="pay-div">
-        <div className="price-location">
-          <div className="price">{price}</div>
-          <div className="location">{location}</div>
-        </div>
-        <Link to={`/job/${id}`} className="apply-btn">
-          Apply now
-        </Link>
+      <div className="job-card-meta">
+        {price && <span className="meta-pill">{price}</span>}
+        {tags.slice(0, 2).map((tag, i) => (
+          <span key={i} className="meta-pill">
+            {tag}
+          </span>
+        ))}
       </div>
 
-      {/* <button className="delete-btn" onClick={() => onDelete(mongoId)}>
-        Delete
-      </button> */}
-
-      <div className="card-actions">
-        <Link to={`/edit/${id}`} className="delete-btn">
-          Edit
-        </Link>
-        <button className="delete-btn" onClick={() => onDelete(mongoId)}>
-          Delete
-        </button>
-      </div>
-    </>
+      <button
+        className="delete-icon-btn"
+        onClick={handleDelete}
+        aria-label="Delete job"
+        title="Delete job"
+      >
+        <FaTrashAlt />
+      </button>
+    </article>
   );
 }
 

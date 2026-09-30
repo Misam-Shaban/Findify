@@ -1,34 +1,61 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useParams, useNavigate } from "react-router-dom";
 import Jobcard from "./Jobcard";
+import JobDescription from "./JobDescription";
+import EditJob from "./EditJob";
+
+const API = "https://job-cards-with-react-production.up.railway.app/api/jobs";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
   const [searchParams] = useSearchParams();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const keyword = searchParams.get("keyword") || "";
   const location = searchParams.get("location") || "";
 
+  // Fetch jobs
   useEffect(() => {
-    fetch("https://job-cards-with-react-production.up.railway.app/api/jobs")
+    fetch(API)
       .then((res) => res.json())
-      .then((data) => setJobs(data))
-      .catch((err) => console.log(err));
+      .then(setJobs)
+      .catch(console.log);
   }, []);
 
-  const handleDelete = async (mongoId) => {
-    try {
-      const response = await fetch(
-        `https://job-cards-with-react-production.up.railway.app/api/jobs/${mongoId}`,
-        { method: "DELETE" },
-      );
+  // ✅ Auto-select first job if no id in URL
+  useEffect(() => {
+    if (jobs && jobs.length > 0 && !id) {
+      const first = jobs[0];
+      const firstId = first.id ?? first._id;
+      if (firstId) navigate(`/jobs/${firstId}`, { replace: true });
+    }
+  }, [jobs, id, navigate]);
 
-      if (response.ok) {
-        setJobs(jobs.filter((job) => job._id !== mongoId));
+  // Reset edit mode when selection changes
+  useEffect(() => {
+    setIsEditing(false);
+  }, [id]);
+
+  const handleDelete = async (mongoId, jobId) => {
+    if (!window.confirm("Delete this job?")) return;
+    try {
+      const res = await fetch(`${API}/${mongoId}`, { method: "DELETE" });
+      if (res.ok) {
+        setJobs((prev) => prev.filter((j) => j._id !== mongoId));
+        if (String(jobId) === String(id)) navigate("/jobs");
       }
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleUpdate = (updatedJob) => {
+    setJobs((prev) =>
+      prev.map((j) => (j._id === updatedJob._id ? { ...j, ...updatedJob } : j)),
+    );
+    setIsEditing(false);
   };
 
   if (!jobs) {
@@ -42,53 +69,65 @@ const Jobs = () => {
   const filteredJobs = jobs.filter((job) => {
     const matchesKeyword =
       !keyword ||
-      job.title.toLowerCase().includes(keyword.toLowerCase()) ||
-      job.company.toLowerCase().includes(keyword.toLowerCase());
-
+      job.title?.toLowerCase().includes(keyword.toLowerCase()) ||
+      job.company?.toLowerCase().includes(keyword.toLowerCase());
     const matchesLocation =
-      !location || job.location.toLowerCase().includes(location.toLowerCase());
-
+      !location || job.location?.toLowerCase().includes(location.toLowerCase());
     return matchesKeyword && matchesLocation;
   });
 
-  if (filteredJobs.length === 0) {
-    return (
-      <div className="loading-container">
-        <p className="loading-text">No jobs match your search.</p>
-      </div>
-    );
-  }
+  const selectedJob = jobs.find((j) => String(j.id) === String(id)) || null;
 
   return (
-    <div className="showCard">
-      {filteredJobs.map(function ({
-        _id,
-        id,
-        logo,
-        company,
-        postedDays,
-        tags,
-        title,
-        location,
-        price,
-      }) {
-        return (
-          <div key={_id} className="main-div">
-            <Jobcard
-              id={id}
-              mongoId={_id}
-              logo={logo}
-              company={company}
-              postedDays={postedDays}
-              title={title}
-              tags={tags}
-              price={price}
-              location={location}
-              onDelete={handleDelete}
-            />
+    <div className={`jobs-layout${selectedJob ? " has-selection" : ""}`}>
+      {/* LEFT: LIST */}
+      <aside className="jobs-list-panel">
+        <div className="jobs-list-header">
+          <h2>Jobs for you</h2>
+          <p className="jobs-search-info">
+            {filteredJobs.length} {filteredJobs.length === 1 ? "job" : "jobs"}
+            {keyword && ` for "${keyword}"`}
+          </p>
+        </div>
+
+        <div className="jobs-list">
+          {filteredJobs.length === 0 ? (
+            <p className="empty-text">No jobs match your search.</p>
+          ) : (
+            filteredJobs.map((job) => (
+              <Jobcard
+                key={job._id}
+                {...job}
+                isActive={String(job.id) === String(id)}
+                onDelete={() => handleDelete(job._id, job.id)}
+              />
+            ))
+          )}
+        </div>
+      </aside>
+
+      {/* RIGHT: DETAIL / EDIT */}
+      <section className="jobs-detail-panel">
+        {!selectedJob ? (
+          <div className="empty-state">
+            <div className="empty-icon"></div>
+            <h3></h3>
+            <p></p>
           </div>
-        );
-      })}
+        ) : isEditing ? (
+          <EditJob
+            job={selectedJob}
+            onCancel={() => setIsEditing(false)}
+            onUpdate={handleUpdate}
+          />
+        ) : (
+          <JobDescription
+            job={selectedJob}
+            onEdit={() => setIsEditing(true)}
+            onDelete={() => handleDelete(selectedJob._id, selectedJob.id)}
+          />
+        )}
+      </section>
     </div>
   );
 };
