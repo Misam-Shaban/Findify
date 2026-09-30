@@ -12,7 +12,8 @@ function TopNav() {
           <span>Findify</span>
         </Link>
         <Link to="/">Home</Link>
-        <a href="#footer">Company reviews</a>
+        <Link to="/jobs">Find Your Job</Link>
+        {/* <a href="#footer">Company reviews</a> */}
       </nav>
 
       <nav className="top-nav-right" aria-label="Account navigation">
