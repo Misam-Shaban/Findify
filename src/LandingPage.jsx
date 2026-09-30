@@ -1,82 +1,80 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const categories = [
-  { icon: "⌘", title: "Technology", count: "2,480" },
-  { icon: "✦", title: "Design & Creative", count: "1,120" },
-  { icon: "↗", title: "Marketing & Growth", count: "986" },
-  { icon: "◫", title: "Business & Finance", count: "740" },
-  { icon: "♙", title: "People & Operations", count: "692" },
-  { icon: "✚", title: "Healthcare", count: "570" },
-];
-
-function Brand() {
+function TopNav() {
   return (
-    <Link className="brand" to="/" aria-label="Findify home">
-      <span className="brand-mark" aria-hidden="true">
-        F
-      </span>
-      <span>Findify</span>
-    </Link>
-  );
-}
-
-function Header() {
-  return (
-    <header className="site-header">
-      <div className="shell header-inner">
-        <Brand />
-        <nav className="nav-links" aria-label="Primary navigation">
-          <Link className="is-active" to="/">
-            Home
-          </Link>
-          <Link to="/jobs">Find Jobs</Link>
-        </nav>
-        <Link className="pill-button pill-button--outline" to="/add-job">
-          Post a job <span aria-hidden="true">↗</span>
+    <div className="shell top-nav">
+      <nav className="top-nav-left" aria-label="Primary navigation">
+        <Link className="brand brand--small" to="/" aria-label="Findify home">
+          <span className="brand-mark" aria-hidden="true">
+            F
+          </span>
+          <span>Findify</span>
         </Link>
-      </div>
-    </header>
+        <Link to="/">Home</Link>
+        <a href="#footer">Company reviews</a>
+      </nav>
+
+      <nav className="top-nav-right" aria-label="Account navigation">
+        <a href="#footer">Sign in</a>
+        <a href="#footer">Language</a>
+
+        <Link to="/add-job">Employers / Post a job</Link>
+      </nav>
+    </div>
   );
 }
 
 function SearchBar() {
   const navigate = useNavigate();
-  const [keyword, setKeyword] = useState("");
+
   const [location, setLocation] = useState("");
+  const [keyword, setKeyword] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
+
     const params = new URLSearchParams();
-    if (keyword.trim()) params.set("keyword", keyword.trim());
-    if (location.trim()) params.set("location", location.trim());
+
+    if (keyword.trim()) {
+      params.set("keyword", keyword.trim());
+    }
+
+    if (location.trim()) {
+      params.set("location", location.trim());
+    }
+
     navigate(`/jobs?${params.toString()}`);
   };
 
   return (
     <form className="job-search" onSubmit={handleSearch}>
-      <label className="search-field">
-        <span aria-hidden="true">⌕</span>
-        <input
-          name="keyword"
-          placeholder="Job title or keyword"
-          aria-label="Job title or keyword"
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-        />
-      </label>
       <label className="search-field search-field--location">
         <span aria-hidden="true">⌖</span>
+
         <input
           name="location"
-          placeholder="City, remote, or hybrid"
+          placeholder="City, state, zip code, or remote"
           aria-label="Location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
       </label>
+
+      <label className="search-field">
+        <span aria-hidden="true">⌕</span>
+
+        <input
+          name="keyword"
+          placeholder="Job title, keywords, or company"
+          aria-label="Job title, keywords, or company"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
+      </label>
+
       <button className="button button--accent" type="submit">
-        Search jobs <span aria-hidden="true">→</span>
+        Find jobs
       </button>
     </form>
   );
@@ -84,83 +82,26 @@ function SearchBar() {
 
 function Hero() {
   return (
-    <section className="hero" id="top">
-      <Header />
-      <div className="shell hero-grid">
-        <div className="hero-copy">
-          <p className="eyebrow">
-            <span /> Your next chapter starts here
-          </p>
-          <h1>
-            Find work that
-            <br />
-            <em>moves you forward.</em>
-          </h1>
-          <p className="hero-summary">
-            Explore hand-picked opportunities from teams building the future. A
-            smarter, calmer way to find the role that fits.
-          </p>
-          <SearchBar />
-          <div className="proof-point">
-            <div className="avatars" aria-hidden="true">
-              <span>MA</span>
-              <span>JR</span>
-              <span>SK</span>
-              <span>LL</span>
-              <span>+</span>
-            </div>
-            <p>
-              <strong>12,000+ people</strong> found their next role with Findify
-              this month.
-            </p>
-          </div>
-        </div>
+    <section className="hero hero--centered" id="top">
+      <TopNav />
+
+      <div className="shell search-shell">
+        <SearchBar />
       </div>
-    </section>
-  );
-}
 
-function CategoryCard({ icon, title, count }) {
-  return (
-    <a className="category-card" href="#jobs">
-      <span className="category-icon" aria-hidden="true">
-        {icon}
-      </span>
-      <h3>{title}</h3>
-      <p>{count} open roles</p>
-      <span className="card-arrow" aria-hidden="true">
-        →
-      </span>
-    </a>
-  );
-}
+      <div className="shell hero-centered-content">
+        <div className="hero-brand">
+          <span className="brand-mark brand-mark--large" aria-hidden="true">
+            F
+          </span>
 
-function CategoryGrid() {
-  return (
-    <section className="categories section" id="jobs">
-      <div className="shell">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow eyebrow--plain">Explore possibilities</p>
-            <h2>
-              Find your place
-              <br />
-              in the right team.
-            </h2>
-          </div>
-          <Link className="text-link" to="/jobs">
-            View all jobs <span>→</span>
-          </Link>
+          <h1 className="hero-wordmark">Findify</h1>
         </div>
-        <p className="section-summary">
-          From your first big move to your next defining role, browse work
-          shaped around what you want to do.
+
+        <p className="hero-summary hero-summary--centered">
+          Find work that moves you forward. Search thousands of open roles,
+          hand-picked from teams building the future.
         </p>
-        <div className="category-grid">
-          {categories.map((category) => (
-            <CategoryCard key={category.title} {...category} />
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -168,20 +109,16 @@ function CategoryGrid() {
 
 function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" id="footer">
       <div className="shell">
         <div className="footer-top">
-          <Brand />
           <p>
             Good work changes everything.
             <br />
             Let's find yours.
           </p>
-          <nav aria-label="Footer navigation">
-            <a href="#jobs">Find jobs</a>
-            <Link to="/add-job">Post a job</Link>
-          </nav>
         </div>
+
         <div className="footer-bottom">
           <span>© 2026 Findify. Built for better work.</span>
           <span>Privacy · Terms</span>
@@ -193,12 +130,9 @@ function Footer() {
 
 export default function LandingPage() {
   return (
-    <>
+    <div className="page-wrapper">
       <Hero />
-      <main>
-        <CategoryGrid />
-      </main>
       <Footer />
-    </>
+    </div>
   );
 }

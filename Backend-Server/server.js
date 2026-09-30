@@ -3,7 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
 const Job = require("./models/Job");
+const User = require("./models/User");
+const authMiddleware = require("./middleware/auth");
 
 const app = express();
 
@@ -19,6 +24,7 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
+// GET all jobs
 app.get("/api/jobs", async (req, res) => {
   try {
     const jobs = await Job.find();
@@ -28,6 +34,7 @@ app.get("/api/jobs", async (req, res) => {
   }
 });
 
+// GET single job
 app.get("/api/jobs/:id", async (req, res) => {
   try {
     const job = await Job.findOne({ id: req.params.id });
@@ -40,9 +47,8 @@ app.get("/api/jobs/:id", async (req, res) => {
   }
 });
 
-// POST CRUD
-
-app.post("/api/jobs", async (req, res) => {
+// POST create job (protected)
+app.post("/api/jobs", authMiddleware, async (req, res) => {
   try {
     const lastJob = await Job.findOne().sort({ id: -1 });
     const nextId = lastJob && lastJob.id ? lastJob.id + 1 : 1;
@@ -56,8 +62,25 @@ app.post("/api/jobs", async (req, res) => {
   }
 });
 
-// Delete CRUD
-app.delete("/api/jobs/:mongoId", async (req, res) => {
+// PUT update job (protected)
+app.put("/api/jobs/:mongoId", authMiddleware, async (req, res) => {
+  try {
+    const updatedJob = await Job.findByIdAndUpdate(
+      req.params.mongoId,
+      req.body,
+      { new: true },
+    );
+    if (!updatedJob) {
+      return res.status(404).json({ message: "Job not found" });
+    }
+    res.json(updatedJob);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// DELETE job (protected)
+app.delete("/api/jobs/:mongoId", authMiddleware, async (req, res) => {
   try {
     const deletedJob = await Job.findByIdAndDelete(req.params.mongoId);
     if (!deletedJob) {
@@ -69,19 +92,62 @@ app.delete("/api/jobs/:mongoId", async (req, res) => {
   }
 });
 
-// PUT CRUD
-
-app.put("/api/jobs/:mongoId", async (req, res) => {
+// Signup
+app.post("/api/signup", async (req, res) => {
   try {
-    const updatedJob = await Job.findByIdAndUpdate(
-      req.params.mongoId,
-      req.body,
-      { new: true },
-    );
-    if (!updatedJob) {
-      return res.status(404).json({ message: "Job not found" });
+    const { name, email, password } = req.body;
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "Email already registered" });
     }
-    res.json(updatedJob);
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    await newUser.save();
+
+    const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    res.status(201).json({
+      token,
+      user: { id: newUser._id, name: newUser.name, email: newUser.email },
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Login
+app.post("/api/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: "Invalid email or password" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: "Invalid email or password" });
+    }
+
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    res.json({
+      token,
+      user: { id: user._id, name: user.name, email: user.email },
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
