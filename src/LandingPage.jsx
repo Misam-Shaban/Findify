@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const categories = [
   { icon: "⌘", title: "Technology", count: "2,480" },
@@ -29,10 +30,10 @@ function Header() {
           <Link className="is-active" to="/">
             Home
           </Link>
-          <Link to="jobs">Find jobs</Link>
+          <Link to="/jobs">Find Jobs</Link>
         </nav>
         <Link className="pill-button pill-button--outline" to="/add-job">
-          Post a job
+          Post a job <span aria-hidden="true">↗</span>
         </Link>
       </div>
     </header>
@@ -40,14 +41,28 @@ function Header() {
 }
 
 function SearchBar() {
+  const navigate = useNavigate();
+  const [keyword, setKeyword] = useState("");
+  const [location, setLocation] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if (keyword.trim()) params.set("keyword", keyword.trim());
+    if (location.trim()) params.set("location", location.trim());
+    navigate(`/jobs?${params.toString()}`);
+  };
+
   return (
-    <form className="job-search" onSubmit={(e) => e.preventDefault()}>
+    <form className="job-search" onSubmit={handleSearch}>
       <label className="search-field">
         <span aria-hidden="true">⌕</span>
         <input
           name="keyword"
           placeholder="Job title or keyword"
           aria-label="Job title or keyword"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
         />
       </label>
       <label className="search-field search-field--location">
@@ -56,11 +71,13 @@ function SearchBar() {
           name="location"
           placeholder="City, remote, or hybrid"
           aria-label="Location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
         />
       </label>
-      <Link className="button button--accent" to="/jobs">
+      <button className="button button--accent" type="submit">
         Search jobs <span aria-hidden="true">→</span>
-      </Link>
+      </button>
     </form>
   );
 }

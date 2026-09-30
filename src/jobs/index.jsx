@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Jobcard from "./Jobcard";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState(null);
+  const [searchParams] = useSearchParams();
+
+  const keyword = searchParams.get("keyword") || "";
+  const location = searchParams.get("location") || "";
 
   useEffect(() => {
     fetch("https://job-cards-with-react-production.up.railway.app/api/jobs")
@@ -34,17 +39,29 @@ const Jobs = () => {
     );
   }
 
-  if (jobs.length === 0) {
+  const filteredJobs = jobs.filter((job) => {
+    const matchesKeyword =
+      !keyword ||
+      job.title.toLowerCase().includes(keyword.toLowerCase()) ||
+      job.company.toLowerCase().includes(keyword.toLowerCase());
+
+    const matchesLocation =
+      !location || job.location.toLowerCase().includes(location.toLowerCase());
+
+    return matchesKeyword && matchesLocation;
+  });
+
+  if (filteredJobs.length === 0) {
     return (
       <div className="loading-container">
-        <p className="loading-text">No jobs available at the moment.</p>
+        <p className="loading-text">No jobs match your search.</p>
       </div>
     );
   }
 
   return (
     <div className="showCard">
-      {jobs.map(function ({
+      {filteredJobs.map(function ({
         _id,
         id,
         logo,
