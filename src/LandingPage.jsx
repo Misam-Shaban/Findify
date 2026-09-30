@@ -58,7 +58,7 @@ function SearchBar() {
           aria-label="Location"
         />
       </label>
-      <Link className="button button--accent" to="/">
+      <Link className="button button--accent" to="/jobs">
         Search jobs <span aria-hidden="true">→</span>
       </Link>
     </form>
@@ -131,7 +131,7 @@ function CategoryGrid() {
               in the right team.
             </h2>
           </div>
-          <Link className="text-link" to="/">
+          <Link className="text-link" to="/jobs">
             View all jobs <span>→</span>
           </Link>
         </div>
