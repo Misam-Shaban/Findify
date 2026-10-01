@@ -15,38 +15,71 @@ function SearchBar() {
   const navigate = useNavigate();
   const [location, setLocation] = useState("");
   const [keyword, setKeyword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    const trimmedKeyword = keyword.trim();
+    const trimmedLocation = location.trim();
+
+    // ❌ Dono empty hain to error dikhao
+    if (!trimmedKeyword && !trimmedLocation) {
+      setError("Please enter a job title, keyword, or location to search.");
+      return;
+    }
+
+    // ✅ Error clear karo
+    setError("");
+
     const params = new URLSearchParams();
-    if (keyword.trim()) params.set("keyword", keyword.trim());
-    if (location.trim()) params.set("location", location.trim());
+    if (trimmedKeyword) params.set("keyword", trimmedKeyword);
+    if (trimmedLocation) params.set("location", trimmedLocation);
+
     navigate(`/jobs?${params.toString()}`);
   };
 
+  const handleKeywordChange = (e) => {
+    setKeyword(e.target.value);
+    if (error) setError("");
+  };
+
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+    if (error) setError("");
+  };
+
   return (
-    <form className="job-search" onSubmit={handleSearch}>
-      <label className="search-field search-field--location">
-        <span aria-hidden="true">⌖</span>
-        <input
-          name="location"
-          placeholder="City, state, zip code, or remote"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-      </label>
-      <label className="search-field">
-        <span aria-hidden="true">⌕</span>
-        <input
-          name="keyword"
-          placeholder="Job title, keywords, or company"
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-        />
-      </label>
-      <button className="button button--accent" type="submit">
-        Find jobs
-      </button>
+    <form className="job-search-wrapper" onSubmit={handleSearch}>
+      <div className="job-search">
+        <label className="search-field search-field--location">
+          <span aria-hidden="true">⌖</span>
+          <input
+            name="location"
+            placeholder="City, state, zip code, or remote"
+            value={location}
+            onChange={handleLocationChange}
+          />
+        </label>
+        <label className="search-field">
+          <span aria-hidden="true">⌕</span>
+          <input
+            name="keyword"
+            placeholder="Job title, keywords, or company"
+            value={keyword}
+            onChange={handleKeywordChange}
+          />
+        </label>
+        <button className="button button--accent" type="submit">
+          Find jobs
+        </button>
+      </div>
+
+      {error && (
+        <p className="search-error" role="alert">
+          {error}
+        </p>
+      )}
     </form>
   );
 }
