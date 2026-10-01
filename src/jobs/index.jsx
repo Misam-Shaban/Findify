@@ -125,7 +125,13 @@ const Jobs = () => {
       </aside>
 
       <section className="jobs-detail-panel">
-        {!selectedJob ? (
+        {filteredJobs.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">🔍</div>
+            <h3>No jobs found</h3>
+            <p>Try adjusting your keywords or location and search again.</p>
+          </div>
+        ) : !selectedJob ? (
           <JobDetailSkeleton />
         ) : isEditing ? (
           <EditJob
