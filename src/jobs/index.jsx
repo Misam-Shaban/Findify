@@ -3,6 +3,7 @@ import { useSearchParams, useParams, useNavigate } from "react-router-dom";
 import Jobcard from "./Jobcard";
 import JobDescription from "./JobDescription";
 import EditJob from "./EditJob";
+import { JobsPageSkeleton } from "../components/Skeletons";
 
 const API = "https://job-cards-with-react-production.up.railway.app/api/jobs";
 
@@ -16,7 +17,6 @@ const Jobs = () => {
   const keyword = searchParams.get("keyword") || "";
   const location = searchParams.get("location") || "";
 
-  // Fetch jobs
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
@@ -24,11 +24,10 @@ const Jobs = () => {
       .catch(console.log);
   }, []);
 
-  // ✅ Auto-select first FILTERED job (preserving query params)
+  // Auto-select first FILTERED job
   useEffect(() => {
     if (!jobs || jobs.length === 0) return;
 
-    // Filter jobs by keyword + location
     const filtered = jobs.filter((job) => {
       const matchesKeyword =
         !keyword ||
@@ -42,16 +41,13 @@ const Jobs = () => {
 
     if (filtered.length === 0) return;
 
-    // Check if currently selected job is in filtered list
     const currentInFiltered =
       id && filtered.some((j) => String(j.id) === String(id));
 
-    // Agar current job filtered list mein nahi hai, to first filtered select karo
     if (!currentInFiltered) {
       const first = filtered[0];
       const firstId = first.id ?? first._id;
 
-      // ✅ Query params preserve karo
       const params = new URLSearchParams();
       if (keyword) params.set("keyword", keyword);
       if (location) params.set("location", location);
@@ -61,7 +57,6 @@ const Jobs = () => {
     }
   }, [jobs, id, keyword, location, navigate]);
 
-  // Reset edit mode when selection changes
   useEffect(() => {
     setIsEditing(false);
   }, [id]);
@@ -87,11 +82,7 @@ const Jobs = () => {
   };
 
   if (!jobs) {
-    return (
-      <div className="loading-container">
-        <p className="loading-text">Loading jobs...</p>
-      </div>
-    );
+    return <JobsPageSkeleton />;
   }
 
   const filteredJobs = jobs.filter((job) => {
@@ -108,7 +99,6 @@ const Jobs = () => {
 
   return (
     <div className={`jobs-layout${selectedJob ? " has-selection" : ""}`}>
-      {/* LEFT: LIST */}
       <aside className="jobs-list-panel">
         <div className="jobs-list-header">
           <h2>Jobs for you</h2>
@@ -134,7 +124,6 @@ const Jobs = () => {
         </div>
       </aside>
 
-      {/* RIGHT: DETAIL / EDIT */}
       <section className="jobs-detail-panel">
         {!selectedJob ? (
           <div className="empty-state">

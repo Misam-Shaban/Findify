@@ -811,6 +811,27 @@ img {
   flex-direction: column;
 }
 
+
+/* =========================
+   SKELETON STYLES
+========================= */
+.job-card-skeleton {
+  cursor: default;
+  pointer-events: none;
+}
+
+.job-card-skeleton:hover {
+  border-color: var(--border);
+  transform: none;
+  box-shadow: none;
+}
+
+/* react-loading-skeleton custom accent */
+.react-loading-skeleton {
+  --base-color: #e2e8f0;
+  --highlight-color: #f1f5f9;
+}
+
 .job-card:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow-sm);
