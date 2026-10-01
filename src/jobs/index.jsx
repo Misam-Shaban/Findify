@@ -3,7 +3,7 @@ import { useSearchParams, useParams, useNavigate } from "react-router-dom";
 import Jobcard from "./Jobcard";
 import JobDescription from "./JobDescription";
 import EditJob from "./EditJob";
-import { JobsPageSkeleton } from "../components/Skeletons";
+import { JobsPageSkeleton, JobDetailSkeleton } from "../components/Skeletons";
 
 const API = "https://job-cards-with-react-production.up.railway.app/api/jobs";
 
@@ -126,11 +126,7 @@ const Jobs = () => {
 
       <section className="jobs-detail-panel">
         {!selectedJob ? (
-          <div className="empty-state">
-            <div className="empty-icon">👈</div>
-            <h3>Select a job to view details</h3>
-            <p>Click any job card on the left to see the full description.</p>
-          </div>
+          <JobDetailSkeleton />
         ) : isEditing ? (
           <EditJob
             job={selectedJob}
