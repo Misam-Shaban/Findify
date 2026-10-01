@@ -24,14 +24,42 @@ const Jobs = () => {
       .catch(console.log);
   }, []);
 
-  // ✅ Auto-select first job if no id in URL
+  // ✅ Auto-select first FILTERED job (preserving query params)
   useEffect(() => {
-    if (jobs && jobs.length > 0 && !id) {
-      const first = jobs[0];
+    if (!jobs || jobs.length === 0) return;
+
+    // Filter jobs by keyword + location
+    const filtered = jobs.filter((job) => {
+      const matchesKeyword =
+        !keyword ||
+        job.title?.toLowerCase().includes(keyword.toLowerCase()) ||
+        job.company?.toLowerCase().includes(keyword.toLowerCase());
+      const matchesLocation =
+        !location ||
+        job.location?.toLowerCase().includes(location.toLowerCase());
+      return matchesKeyword && matchesLocation;
+    });
+
+    if (filtered.length === 0) return;
+
+    // Check if currently selected job is in filtered list
+    const currentInFiltered =
+      id && filtered.some((j) => String(j.id) === String(id));
+
+    // Agar current job filtered list mein nahi hai, to first filtered select karo
+    if (!currentInFiltered) {
+      const first = filtered[0];
       const firstId = first.id ?? first._id;
-      if (firstId) navigate(`/jobs/${firstId}`, { replace: true });
+
+      // ✅ Query params preserve karo
+      const params = new URLSearchParams();
+      if (keyword) params.set("keyword", keyword);
+      if (location) params.set("location", location);
+      const qs = params.toString();
+
+      navigate(`/jobs/${firstId}${qs ? `?${qs}` : ""}`, { replace: true });
     }
-  }, [jobs, id, navigate]);
+  }, [jobs, id, keyword, location, navigate]);
 
   // Reset edit mode when selection changes
   useEffect(() => {
@@ -110,9 +138,9 @@ const Jobs = () => {
       <section className="jobs-detail-panel">
         {!selectedJob ? (
           <div className="empty-state">
-            <div className="empty-icon"></div>
-            <h3></h3>
-            <p></p>
+            <div className="empty-icon">👈</div>
+            <h3>Select a job to view details</h3>
+            <p>Click any job card on the left to see the full description.</p>
           </div>
         ) : isEditing ? (
           <EditJob
