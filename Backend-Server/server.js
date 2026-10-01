@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 
 const Job = require("./models/Job");
 const User = require("./models/User");
-const authMiddleware = require("./middleware/auth");
+// const authMiddleware = require("./middleware/auth"); // 🔒 Auth temporarily disabled
 
 const app = express();
 
@@ -23,6 +23,10 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
+
+/* =========================
+   JOBS CRUD (Auth disabled for testing)
+========================= */
 
 // GET all jobs
 app.get("/api/jobs", async (req, res) => {
@@ -47,8 +51,8 @@ app.get("/api/jobs/:id", async (req, res) => {
   }
 });
 
-// POST create job (protected)
-app.post("/api/jobs", authMiddleware, async (req, res) => {
+// POST create job
+app.post("/api/jobs", async (req, res) => {
   try {
     const lastJob = await Job.findOne().sort({ id: -1 });
     const nextId = lastJob && lastJob.id ? lastJob.id + 1 : 1;
@@ -62,13 +66,13 @@ app.post("/api/jobs", authMiddleware, async (req, res) => {
   }
 });
 
-// PUT update job (protected)
-app.put("/api/jobs/:mongoId", authMiddleware, async (req, res) => {
+// PUT update job
+app.put("/api/jobs/:mongoId", async (req, res) => {
   try {
     const updatedJob = await Job.findByIdAndUpdate(
       req.params.mongoId,
       req.body,
-      { new: true },
+      { returnDocument: "after" },
     );
     if (!updatedJob) {
       return res.status(404).json({ message: "Job not found" });
@@ -79,8 +83,8 @@ app.put("/api/jobs/:mongoId", authMiddleware, async (req, res) => {
   }
 });
 
-// DELETE job (protected)
-app.delete("/api/jobs/:mongoId", authMiddleware, async (req, res) => {
+// DELETE job
+app.delete("/api/jobs/:mongoId", async (req, res) => {
   try {
     const deletedJob = await Job.findByIdAndDelete(req.params.mongoId);
     if (!deletedJob) {
@@ -91,6 +95,10 @@ app.delete("/api/jobs/:mongoId", authMiddleware, async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+/* =========================
+   AUTH (Keep for later use)
+========================= */
 
 // Signup
 app.post("/api/signup", async (req, res) => {
