@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
 const API = "https://job-cards-with-react-production.up.railway.app/api/jobs";
+
 const toArray = (text, sep) =>
   text
     .split(sep)
@@ -58,7 +59,13 @@ function EditJob({ job, onCancel, onUpdate }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updated),
       });
-      if (res.ok) onUpdate(updated);
+
+      if (res.ok) {
+        const savedJob = await res.json();
+        onUpdate(savedJob);
+      } else {
+        console.error("Update failed:", res.status);
+      }
     } catch (err) {
       console.log(err);
     } finally {
